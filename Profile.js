@@ -11,6 +11,9 @@ import { Avatar } from "react-native-elements";
 
 const Profile = ({ navigation }) => {
     const [edit, setEdit] = useState(false);
+    const [name, setName] = useState('Glory Victor');
+    const [info, setInfo] = useState('Full stack developer');
+    const [description, setDescription] = useState('Lorem ipsum dolor sit amet, saepe sapientem eu nam.');
     return (
       <View style={styles.container}>
           <View style={styles.header}></View>
@@ -25,14 +28,14 @@ const Profile = ({ navigation }) => {
 
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              {edit && <TextInput style={[styles.name, {backgroundColor: '#C0C0C0'}]} placeholder={'Glory Victor'} editable={edit} />}
-              {!edit && <Text style={styles.info}>Glory Victor</Text>}
+              {edit && <TextInput style={[styles.name, {backgroundColor: '#C0C0C0'}]} placeholder={name} editable={edit} onChangeText={text => setName(text)} />}
+              {!edit && <Text style={styles.info}>{name}</Text>}
 
-              {edit && <TextInput style={[styles.name, { backgroundColor:'#C0C0C0' }]} placeholder={'Full stack developer'} editable={edit} />}
-              {!edit && <Text style={styles.info}>Full stack developer</Text>}
+              {edit && <TextInput style={[styles.name, { backgroundColor:'#C0C0C0' }]} placeholder={info} editable={edit} onChangeText={text => setInfo(text)} />}
+              {!edit && <Text style={styles.info}>{info}</Text>}
 
-              {edit && <TextInput style={[styles.description, {backgroundColor: '#C0C0C0'}]} placeholder={'Lorem ipsum dolor sit amet, saepe sapientem eu nam.'} editable={edit} />}
-              {!edit && <Text style={styles.info}>Lorem ipsum dolor sit amet, saepe sapientem eu nam.</Text>}
+              {edit && <TextInput style={[styles.description, {backgroundColor: '#C0C0C0'}]} placeholder={description} editable={edit} onChangeText={text => setDescription(text)} />}
+              {!edit && <Text style={styles.info}>{description}</Text>}
             </View>
           </View>
               <View style={styles.button}>
@@ -48,9 +51,9 @@ const Profile = ({ navigation }) => {
                   <TouchableOpacity style={styles.buttonContainer} onPress={() => setEdit(false)}>
                     <Text style={styles.buttonText}>Submit</Text>  
                   </TouchableOpacity>           
-                  <TouchableOpacity style={styles.buttonContainer} onPress={() => setEdit(false)}>
+                  {/* <TouchableOpacity style={styles.buttonContainer} onPress={() => setEdit(false)}>
                     <Text style={styles.buttonText}>Cancel</Text> 
-                  </TouchableOpacity>
+                  </TouchableOpacity> */ }
                 </View>
               }
       </View>
